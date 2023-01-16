@@ -4,8 +4,11 @@
 name: npm publish
 
 on:
-  # push:
-  #   branches: [ "master" ]
+  workflow_call:
+    inputs:
+      version:
+        required: true
+        type: string
 
 jobs:
   bump-version:

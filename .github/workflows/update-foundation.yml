@@ -3,9 +3,9 @@ on:
   workflow_dispatch:
     inputs:
       version:
-        description: 'location'
+        description: 'version number'
         required: true
-        default: '1.0.0'
+        default: '0.0.0'
 
 jobs:
   update-foundation-from-db:
@@ -14,9 +14,10 @@ jobs:
     - run: |
         echo "- in ${{ github.event.inputs.version }}"
   call-workflow-passing-data:
-    permissions:
-      contents: read
-      pull-requests: write
-    uses: team-auspicious/foundation/.github/workflows/testing-npm-publish.yml@master
-    with:
-      version: ${{ github.event.inputs.version }}
+    # permissions:
+    #   contents: read
+    #   pull-requests: write
+    # uses: octo-org/example-repo/.github/workflows/workflow-B.yml@main
+    # uses: team-auspicious/foundation/.github/workflows/testing-npm-publish.yml@master
+    # with:
+    #   version: ${{ github.event.inputs.version }}
