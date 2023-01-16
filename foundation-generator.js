@@ -75,26 +75,29 @@ const jsonPath = {
         });
     }
 
-    const args = process.argv.slice(2);
+    try {
+        const args = process.argv.slice(2);
 
-    if (args.length !== 1) {
-        throw new Error("Invalid number of arguments");
+        if (args.length !== 1) {
+            throw new Error("Invalid number of arguments");
+        }
+
+        const verionAPI = getBaseURL() + `/api/foundation-version/${args[0]}`;
+        const foundationVersion = await get(verionAPI, getClient(verionAPI));
+
+        console.log("findVersion", foundationVersion);
+
+        const detailAPI = getBaseURL() + `/api/foundation-detail/${foundationVersion.id}`;
+        const res = await get(detailAPI, getClient(detailAPI));
+
+        if (!res) {
+            throw new Error("Invalid return");
+        }
+
+        console.log("generating from", res);
+
+        generateJSON(res);
+    } catch (e) {
+        console.error("error", e);
     }
-
-    // const verionAPI = getBaseURL() + `/api/foundation-version/${args[0]}`;
-    // const foundationVersion = await get(verionAPI, getClient(verionAPI));
-
-    console.log("findVersion", foundationVersion);
-    console.log("ppppppp");
-
-    // const detailAPI = getBaseURL() + `/api/foundation-detail/${foundationVersion.id}`;
-    // const res = await get(detailAPI, getClient(detailAPI));
-
-    if (!res) {
-        throw new Error("Invalid return");
-    }
-
-    console.log("generating from", res);
-
-    generateJSON(res);
 })();
