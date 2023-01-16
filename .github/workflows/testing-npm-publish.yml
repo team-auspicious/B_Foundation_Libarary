@@ -14,5 +14,4 @@ jobs:
     - uses: actions/labeler@v4
       with:
         publish-version: ${{ inputs.version }}
-    - run: |
-    echo "got ${{ publish-version }}"
+    - run: echo "got ${{ publish-version }}"
