@@ -17,6 +17,6 @@ jobs:
     permissions:
       contents: read
       pull-requests: write
-    uses: team-auspicious/foundation/.github/workflows/publish.yml@master
+    uses: team-auspicious/foundation/.github/workflows/testing-npm-publish.yml@master
     with:
       version: ${{ github.event.inputs.version }}
