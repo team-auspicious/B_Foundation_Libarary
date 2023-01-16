@@ -81,13 +81,14 @@ const jsonPath = {
         throw new Error("Invalid number of arguments");
     }
 
-    const verionAPI = getBaseURL() + `/api/foundation-version/${args[0]}`;
-    const foundationVersion = await get(verionAPI, getClient(verionAPI));
+    // const verionAPI = getBaseURL() + `/api/foundation-version/${args[0]}`;
+    // const foundationVersion = await get(verionAPI, getClient(verionAPI));
 
     console.log("findVersion", foundationVersion);
+    console.log("ppppppp");
 
-    const detailAPI = getBaseURL() + `/api/foundation-detail/${foundationVersion.id}`;
-    const res = await get(detailAPI, getClient(detailAPI));
+    // const detailAPI = getBaseURL() + `/api/foundation-detail/${foundationVersion.id}`;
+    // const res = await get(detailAPI, getClient(detailAPI));
 
     if (!res) {
         throw new Error("Invalid return");
