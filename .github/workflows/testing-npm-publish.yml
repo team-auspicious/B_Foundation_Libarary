@@ -23,9 +23,11 @@ jobs:
         fetch-depth: 0
     - run: node foundation-generator.js ${{ inputs.version }}
   change-commit:
-    - name: Commit changes
-      needs: generate_json
-      uses: EndBug/add-and-commit@v9
+    name: commit changes
+    needs: generate_json
+    runs-on: ubuntu-latest
+    steps:
+      - uses: EndBug/add-and-commit@v9
         with:
           author_name: KANGHO LEE
           author_email: cannalee90@gmail.com
