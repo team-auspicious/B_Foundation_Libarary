@@ -14,10 +14,9 @@ jobs:
     - run: |
         echo "- in ${{ github.event.inputs.version }}"
   call-workflow-passing-data:
-    - name: run generator
-      permissions:
-        contents: read
-        pull-requests: write
-      uses: ./.github/workflows/testing-npm-publish.yml
-      with:
-        version: ${{ github.event.inputs.version }}
+    permissions:
+      contents: read
+      pull-requests: write
+    uses: ./.github/workflows/testing-npm-publish.yml
+    with:
+      version: ${{ github.event.inputs.version }}
