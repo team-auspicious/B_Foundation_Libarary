@@ -6,9 +6,18 @@ on:
       version:
         required: true
         type: string
+env:
+  production: true
 
 jobs:
-  reusable_workflow_job:
+  generate_json:
     runs-on: ubuntu-latest
     steps:
     - run: echo "got from update foundation ${{ inputs.version }}"
+    - uses: actions/setup-node@v3
+      with:
+        node-version: '16.x'
+        registry-url: 'https://npm.pkg.github.com'
+    - run: node ./foundation-generator.js ${{ inputs.version }}
+
+
