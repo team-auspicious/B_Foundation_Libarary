@@ -18,6 +18,6 @@ jobs:
       with:
         node-version: '16.x'
         registry-url: 'https://npm.pkg.github.com'
-    - run: node ./foundation-generator.js ${{ inputs.version }}
+    - run: node foundation-generator.js ${{ inputs.version }}
 
 
