@@ -21,12 +21,3 @@ jobs:
       uses: ./.github/workflows/testing-npm-publish.yml
       with:
         version: ${{ github.event.inputs.version }}
-  change-commit:
-    - name: Commit changes
-      needs: call-workflow-passing-data
-      uses: EndBug/add-and-commit@v9
-        with:
-          author_name: KANGHO LEE
-          author_email: cannalee90@gmail.com
-          message: 'generator update'
-          add: '*.json'
