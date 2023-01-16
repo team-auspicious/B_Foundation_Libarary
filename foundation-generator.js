@@ -84,7 +84,7 @@ const jsonPath = {
     const verionAPI = getBaseURL() + `/api/foundation-version/${args[0]}`;
     const foundationVersion = await get(verionAPI, getClient(verionAPI));
 
-    console.log(foundationVersion);
+    console.log("findVersion", foundationVersion);
 
     const detailAPI = getBaseURL() + `/api/foundation-detail/${foundationVersion.id}`;
     const res = await get(detailAPI, getClient(detailAPI));
@@ -93,7 +93,7 @@ const jsonPath = {
         throw new Error("Invalid return");
     }
 
-    console.log(res);
+    console.log("generating from", res);
 
     generateJSON(res);
 })();
