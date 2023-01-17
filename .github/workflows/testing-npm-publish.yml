@@ -42,6 +42,7 @@ jobs:
         registry-url: 'https://npm.pkg.github.com'
     - name: npm version up
       run: npm version ${{ inputs.version }}
-    - name: git push master
+    - name: git pull --rebase
       run: git pull --rebase
+    - name: git push master
       run: git push origin master
