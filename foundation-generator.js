@@ -85,9 +85,13 @@ const jsonPath = {
 
 
     const verionAPI = getBaseURL() + `/api/foundation-version/${args[0]}`;
-    const foundationVersion = await get(verionAPI, getClient(verionAPI));
+    try {
+        const foundationVersion = await get(verionAPI, getClient(verionAPI));
+        fs.writeFileSync("./hello.json", JSON.stringify({ foundationVersion, date: new Date() }, null, 2));
+    } catch (e) {
+        console.log("error", e);
+    }
 
-    fs.writeFileSync("./hello.json", JSON.stringify({ foundationVersion, date: new Date() }, null, 2));
 
     const detailAPI = getBaseURL() + `/api/foundation-detail/${foundationVersion.id}`;
     const res = await get(detailAPI, getClient(detailAPI));
