@@ -1,0 +1,21 @@
+name: Trigger foundation upgrade
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'version number'
+        required: true
+        default: '0.0.0'
+
+jobs:
+  update-foundation-from-db:
+    runs-on: ubuntu-latest
+    steps:
+    - run: |
+        echo "- in ${{ github.event.inputs.version }}"
+  call-workflow-passing-data:
+    permissions:
+      contents: write
+    uses: ./.github/workflows/testing-npm-publish.yml
+    with:
+      version: ${{ github.event.inputs.version }}
