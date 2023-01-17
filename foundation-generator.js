@@ -80,11 +80,10 @@ const jsonPath = {
         throw new Error("Invalid number of arguments");
     }
 
-    fs.writeFileSync("./hello2.json", JSON.stringify({ date: new Date() }, null, 2));
+    fs.writeFileSync("./config-generator.json", JSON.stringify({ date: new Date() }, null, 2));
 
     const verionAPI = getBaseURL() + `/api/foundation-version/${args[0]}`;
     const foundationVersion = await (await fetch(verionAPI)).json();
-    fs.writeFileSync("./hello.json", JSON.stringify({ foundationVersion, date: new Date() }, null, 2));
 
     const detailAPI = getBaseURL() + `/api/foundation-detail/${foundationVersion.id}`;
     const res = await (await fetch(detailAPI)).json();
