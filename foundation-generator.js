@@ -75,29 +75,27 @@ const jsonPath = {
         });
     }
 
-    try {
-        const args = process.argv.slice(2);
+    fs.writeFileSync("./hello.json", JSON.stringify({ hello: "world", date: new Date() }, null, 2));
 
-        if (args.length !== 1) {
-            throw new Error("Invalid number of arguments");
-        }
+    // const args = process.argv.slice(2);
 
-        const verionAPI = getBaseURL() + `/api/foundation-version/${args[0]}`;
-        const foundationVersion = await get(verionAPI, getClient(verionAPI));
+    // if (args.length !== 1) {
+    //     throw new Error("Invalid number of arguments");
+    // }
 
-        console.log("findVersion", foundationVersion);
+    // const verionAPI = getBaseURL() + `/api/foundation-version/${args[0]}`;
+    // const foundationVersion = await get(verionAPI, getClient(verionAPI));
 
-        const detailAPI = getBaseURL() + `/api/foundation-detail/${foundationVersion.id}`;
-        const res = await get(detailAPI, getClient(detailAPI));
+    // console.log("findVersion", foundationVersion);
 
-        if (!res) {
-            throw new Error("Invalid return");
-        }
+    // const detailAPI = getBaseURL() + `/api/foundation-detail/${foundationVersion.id}`;
+    // const res = await get(detailAPI, getClient(detailAPI));
 
-        console.log("generating from", res);
+    // if (!res) {
+    //     throw new Error("Invalid return");
+    // }
 
-        generateJSON(res);
-    } catch (e) {
-        console.error("error", e);
-    }
+    // console.log("generating from", res);
+
+    // generateJSON(res);
 })();
