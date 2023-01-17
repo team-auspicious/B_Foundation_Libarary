@@ -1,6 +1,5 @@
-const https = require("https");
-const http = require("http");
-const fs = require("fs");
+import fs from "fs";
+import fetch from "node-fetch";
 
 const jsonPath = {
     spacing: "./src/spacing/data/foundationSpacing.json",
@@ -83,18 +82,12 @@ const jsonPath = {
 
     fs.writeFileSync("./hello2.json", JSON.stringify({ date: new Date() }, null, 2));
 
-
     const verionAPI = getBaseURL() + `/api/foundation-version/${args[0]}`;
-    try {
-        const foundationVersion = await get(verionAPI, getClient(verionAPI));
-        fs.writeFileSync("./hello.json", JSON.stringify({ foundationVersion, date: new Date() }, null, 2));
-    } catch (e) {
-        console.log("error", e);
-    }
-
+    const foundationVersion = await (await fetch(verionAPI)).json();
+    fs.writeFileSync("./hello.json", JSON.stringify({ foundationVersion, date: new Date() }, null, 2));
 
     const detailAPI = getBaseURL() + `/api/foundation-detail/${foundationVersion.id}`;
-    const res = await get(detailAPI, getClient(detailAPI));
+    const res = await (await fetch(detailAPI)).json();
 
     if (!res) {
         throw new Error("Invalid return");
