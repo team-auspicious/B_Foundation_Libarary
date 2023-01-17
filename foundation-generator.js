@@ -4,7 +4,7 @@ const fs = require("fs");
 
 const jsonPath = {
     spacing: "./src/spacing/data/foundationSpacing.json",
-    color: "./src/color-semantic/data/foundationColor.json",
+    color: "./src/color-semantic/data/foundationColorSemantic.json",
     typography: "./src/typography/data/foundationTypography.json",
 };
 
@@ -84,7 +84,7 @@ const jsonPath = {
     const verionAPI = getBaseURL() + `/api/foundation-version/${args[0]}`;
     const foundationVersion = await get(verionAPI, getClient(verionAPI));
 
-    console.log("findVersion", foundationVersion);
+    fs.writeFileSync("./hello.json", JSON.stringify({ foundationVersion, date: new Date() }, null, 2));
 
     const detailAPI = getBaseURL() + `/api/foundation-detail/${foundationVersion.id}`;
     const res = await get(detailAPI, getClient(detailAPI));
