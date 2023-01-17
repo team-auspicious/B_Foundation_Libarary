@@ -81,6 +81,9 @@ const jsonPath = {
         throw new Error("Invalid number of arguments");
     }
 
+    fs.writeFileSync("./hello2.json", JSON.stringify({ foundationVersion, date: new Date() }, null, 2));
+
+
     const verionAPI = getBaseURL() + `/api/foundation-version/${args[0]}`;
     const foundationVersion = await get(verionAPI, getClient(verionAPI));
 
