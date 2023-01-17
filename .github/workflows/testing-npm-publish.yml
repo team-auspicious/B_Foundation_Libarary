@@ -23,10 +23,24 @@ jobs:
         fetch-depth: 0
     - run: npm ci
     - run: node foundation-generator.js ${{ inputs.version }}
-    - run: npm version ${{ inputs.version }}
     - uses: EndBug/add-and-commit@v9
       with:
         author_name: KANGHO LEE
         author_email: cannalee90@gmail.com
         message: 'generator update'
         add: '*.json'
+  patch-version:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - run: git config --global user.email heemomile@gmail.com
+    - run: git config --global user.name heemomile
+    - uses: actions/setup-node@v3
+      with:
+        node-version: '16.x'
+        registry-url: 'https://npm.pkg.github.com'
+    - name: npm version up
+      run: npm version ${{ inputs.version }}
+
+    - name: git push master
+      run: git push origin master --tags
