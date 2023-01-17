@@ -1,6 +1,12 @@
 {
-  "border_2px_solid": "2px solid",
+  "typography_size_middle": "24px",
   "text_align_center": "center",
+  "border_2px_solid": "2px solid #0079bf",
   "border_radius_20px": "20px",
-  "typography_size_middle": "24px"
+  "border_radius_10px": "10px",
+  "border_radius_5px": "5px",
+  "fontWeight_bold": "bold",
+  "outline_none": "none",
+  "border_none": "none",
+  "typography_size_1rem": "1rem"
 }
