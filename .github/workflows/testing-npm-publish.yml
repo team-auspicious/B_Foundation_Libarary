@@ -46,3 +46,18 @@ jobs:
       run: git pull --rebase
     - name: git push master
       run: git push origin master
+  publish-npm:
+    name: Publish package on NPM
+    needs: patch-version
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Publish
+        run: npm publish --access=public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
