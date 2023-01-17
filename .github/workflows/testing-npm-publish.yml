@@ -30,6 +30,7 @@ jobs:
         message: 'generator update'
         add: '*.json'
   patch-version:
+    needs: generate_json
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
