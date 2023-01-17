@@ -15,8 +15,7 @@ jobs:
         echo "- in ${{ github.event.inputs.version }}"
   call-workflow-passing-data:
     permissions:
-      contents: read
-      pull-requests: write
+      contents: write
     uses: ./.github/workflows/testing-npm-publish.yml
     with:
       version: ${{ github.event.inputs.version }}
