@@ -27,6 +27,9 @@ jobs:
     needs: generate_json
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0    
       - uses: EndBug/add-and-commit@v9
         with:
           author_name: KANGHO LEE
