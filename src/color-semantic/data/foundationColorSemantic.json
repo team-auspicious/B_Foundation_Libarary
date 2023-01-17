@@ -1,4 +1,6 @@
 {
-    "basic_primary": "blue",
-    "basic_base": "grey"
+    "primary": "#fff",
+    "base": "rgb(30, 191, 250)",
+    "default": "black",
+    "second": "#0079bf"
 }
