@@ -1,6 +1,5 @@
 {
-  "primary": "#fff",
-  "base": "rgb(30, 191, 250)",
-  "neutral": "black",
-  "second": "#0079bf"
+  "basic_base": "grey",
+  "basic_alert": "red",
+  "basic_primary": "blue"
 }
