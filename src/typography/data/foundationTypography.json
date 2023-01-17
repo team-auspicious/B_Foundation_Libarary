@@ -1,19 +1,6 @@
 {
-<<<<<<< HEAD
-  "typography_size_middle": "24px",
-  "text_align_center": "center",
-  "border_2px_solid": "2px solid #0079bf",
-  "border_radius_20px": "20px",
-  "border_radius_10px": "10px",
-  "border_radius_5px": "5px",
-  "fontWeight_bold": "bold",
-  "outline_none": "none",
-  "border_none": "none",
-  "typography_size_1rem": "1rem"
-=======
   "border_2px_solid": "2px solid",
   "text_align_center": "center",
   "border_radius_20px": "20px",
   "typography_size_middle": "24px"
->>>>>>> 4deb6edea52a192a9c51ecca60ce3c3a4562fd51
 }

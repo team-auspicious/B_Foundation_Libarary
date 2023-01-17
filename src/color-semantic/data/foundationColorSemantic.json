@@ -1,12 +1,5 @@
 {
-<<<<<<< HEAD
-    "primary": "#fff",
-    "base": "rgb(30, 191, 250)",
-    "default": "black",
-    "second": "#0079bf"
-=======
   "basic_base": "grey",
   "basic_alert": "red",
   "basic_primary": "blue"
->>>>>>> 4deb6edea52a192a9c51ecca60ce3c3a4562fd51
 }
