@@ -46,7 +46,7 @@ jobs:
     - name: git pull --rebase
       run: git pull --rebase
     - name: git push master
-      run: git push origin master
+      run: git push origin master --tag
   publish-npm:
     name: Publish package on NPM
     needs: patch-version
