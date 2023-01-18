@@ -1,4 +1,5 @@
 {
   "display_flex": "flex",
-  "direction_column": "column"
+  "direction_column": "column",
+  "float_right": "right"
 }
