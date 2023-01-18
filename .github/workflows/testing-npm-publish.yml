@@ -33,8 +33,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - run: git config --global user.email heemomile@gmail.com
-    - run: git config --global user.name heemomile
+      with:
+        token: {{ secrets.CANNALEE_TOKEN }}
     - uses: actions/setup-node@v2
       with:
         node-version: '16.x'
@@ -44,7 +44,5 @@ jobs:
     - name: npm version up
       run: npm version ${{ inputs.version }}
     - name: git push master
-      run: git push origin master
-    - name: git push tag
-      run: git push origin v${{ inputs.version }}
+      run: git push origin master --tag
 
