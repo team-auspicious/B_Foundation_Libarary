@@ -44,5 +44,7 @@ jobs:
     - name: npm version up
       run: npm version ${{ inputs.version }}
     - name: git push master
-      run: git push origin master --tags
+      run: git push origin master
+    - name: git push tag
+      run: git push origin v${{ inputs.version }}
 
