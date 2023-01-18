@@ -1,12 +1,1 @@
-{
-  "border_none": "none",
-  "outline_none": "none",
-  "fontWeight_bold": "bold",
-  "border_2px_solid": "2px solid #0079bf",
-  "border_radius_5px": "5px",
-  "text_align_center": "center",
-  "border_radius_10px": "10px",
-  "border_radius_20px": "20px",
-  "typography_size_1rem": "1rem",
-  "typography_size_middle": "24px"
-}
+{}
