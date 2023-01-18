@@ -49,6 +49,8 @@ jobs:
       with:
         node-version: '16.x'
         registry-url: 'https://registry.npmjs.org'
+    - run: git config --global user.email "cannalee90@gmail.com"
+    - run: git config --global user.name "KANGHO LEE"
     - name: git pull --rebase
       run: git pull --rebase     
     - name: npm version up
