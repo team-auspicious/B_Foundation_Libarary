@@ -6,6 +6,10 @@ on:
       version:
         required: true
         type: string
+
+env:
+  production: true
+  
 jobs:
   generate_json:
     runs-on: ubuntu-latest
