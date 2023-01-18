@@ -7,16 +7,15 @@ on:
         required: true
         default: '0.0.0'
 
+env:
+  production: true
+  
 jobs:
   update-foundation-from-db:
     runs-on: ubuntu-latest
     steps:
     - run: |
         echo "- in ${{ github.event.inputs.version }}"
-env:
-  production: true
-  
-jobs:
   generate_json:
     runs-on: ubuntu-latest
     steps:
