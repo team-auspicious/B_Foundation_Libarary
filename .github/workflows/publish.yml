@@ -5,8 +5,8 @@ name: npm publish
 
 on:
   push:
-    tags:
-      - 'v*'
+    branches:
+      - 'refs/tags/*'
 jobs:
 
   publish-npm:
