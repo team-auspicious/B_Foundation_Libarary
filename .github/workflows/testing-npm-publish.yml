@@ -42,11 +42,11 @@ jobs:
     - name: git pull --rebase
       run: git pull --rebase
     - name: Configure npm
-        run: |
-          echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > .npmrc
-          cat .npmrc
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}      
+      run: |
+        echo '//registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}' > .npmrc
+        cat .npmrc
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}      
     - name: npm version up
       run: npm version ${{ inputs.version }}
     - name: Publish
