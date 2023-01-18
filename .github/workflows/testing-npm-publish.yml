@@ -9,6 +9,7 @@ on:
 env:
   production: true
   NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 jobs:
   generate_json:
     runs-on: ubuntu-latest
