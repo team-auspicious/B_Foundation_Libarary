@@ -41,16 +41,12 @@ jobs:
       with:
         node-version: '16.x'
         registry-url: 'https://npm.pkg.github.com'
+    - name: git pull --rebase
+      run: git pull --rebase
     - name: npm version up
-      run: npm version patch
-
+      run: npm version ${{ inputs.version }}
     - name: git push master
-      run: git push origin master --tag
-
-    - uses: actions/upload-artifact@v2
-      with:
-        name: src
-        path: ./
+      run: git push origin master --tags
   publish-npm:
     name: Publish package on NPM
     needs: patch-version
@@ -65,6 +61,7 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       - name: node info
         run: npm info . dist-tags
-
+      - name: npm install
+        run: npm ci
       - name: Publish
         run: npm publish --access=public
