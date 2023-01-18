@@ -4,40 +4,13 @@
 name: npm publish
 
 on:
-  workflow_call:
-    inputs:
-      version:
-        required: true
-        type: string
-
+  push:
+    tags:
+      - 'v*'
 jobs:
-  bump-version:
-
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
-    - run: git config --global user.email heemomile@gmail.com
-    - run: git config --global user.name heemomile
-
-    - uses: actions/setup-node@v3
-      with:
-        node-version: '16.x'
-        registry-url: 'https://npm.pkg.github.com'
-
-    - name: npm version up
-      run: npm version patch
-
-    - name: git push master
-      run: git push origin master --tags
-
-    - uses: actions/upload-artifact@v2
-      with:
-        name: src
-        path: ./
 
   publish-npm:
     name: Publish package on NPM
-    needs: bump-version
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
