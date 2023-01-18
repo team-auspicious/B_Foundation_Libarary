@@ -42,7 +42,7 @@ jobs:
         node-version: '16.x'
         registry-url: 'https://npm.pkg.github.com'
     - name: npm version up
-      run: npm version ${{ inputs.version }}
+      run: npm version patch
 
     - name: git push master
       run: git push origin master --tag
@@ -51,7 +51,6 @@ jobs:
       with:
         name: src
         path: ./
-
   publish-npm:
     name: Publish package on NPM
     needs: patch-version
