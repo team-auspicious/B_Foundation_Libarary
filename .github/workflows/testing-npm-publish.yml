@@ -40,18 +40,9 @@ jobs:
         node-version: '16.x'
         registry-url: 'https://registry.npmjs.org'
     - name: git pull --rebase
-      run: git pull --rebase
-    - name: Configure npm
-      run: |
-        echo '//registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}' > .npmrc
-        cat .npmrc
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}      
+      run: git pull --rebase     
     - name: npm version up
       run: npm version ${{ inputs.version }}
-    - name: Publish
-      run: npm publish --access=public
-
     - name: git push master
       run: git push origin master --tags
 
