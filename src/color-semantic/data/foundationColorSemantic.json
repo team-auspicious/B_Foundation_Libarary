@@ -1,8 +1,8 @@
 {
-  "base_color": "white",
+  "base_color": "blue",
   "transparent": "transparent",
+  "second_color": "#bf2116",
   "neutral_color": "#70d142",
   "primary_color": "#179bd8",
-  "second_color": "#bf2116",
   "testing_color": "#3a1ed8"
 }
